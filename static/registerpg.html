@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRATION PAGE</title>
+    <style>
+        /* General Reset */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Page Wrapper */
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form Title */
+        h1 {
+            text-align: center;
+            color: #003366;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Input Fields */
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Labels */
+        .form-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Submit Button */
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            background-color: #00509e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #003366;
+        }
+
+        /* Checkbox */
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        .form-check-label {
+            color: #555;
+        }
+
+        /* Valid Feedback */
+        .valid-feedback {
+            color: #28a745;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #003366;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Engineering Theme Registration</h1>
+        <form class="row g-3 needs-validation" method="POST" action="{% url 'home' %}" novalidate>
+            {% csrf_token %}
+            <p>Already have an account? <a href="{% url 'loginpg' %}">Login Here</a></p><br><br>
+            <div class="col-md-4">
+                <label for="validationCustom01" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="validationCustom01" name="first_name" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="validationCustom02" name="last_name" required>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control" id="validationCustomUsername" name="username" aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                        Please choose a username.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn-primary" type="submit">Submit Form</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        Designed for Engineers & NON-Engineers | © TEAM SKETRA
+    </footer>
+</body>
+</html>
+

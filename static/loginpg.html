@@ -1,0 +1,120 @@
+<!-- login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sketra</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .login-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .login-header h2 {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        form p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form input:focus {
+            outline: none;
+            border-color: #4a5568;
+            box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.2);
+        }
+
+        button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4a5568;
+        }
+
+        .register-link p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .register-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <h1>Welcome to Sketra - Generative AI Tool</h1>
+            <h2>Login to continue</h2>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <p>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" id="id_username" required>
+            </p>
+            <p>
+                <label for="id_password">Password:</label>
+                <input type="password" name="password" id="id_password" required>
+            </p>
+            <button type="submit">Login</button>
+        </form>
+   
+        <div class="register-link">
+            <p>Don't have an account? <a href="{% url 'registerpg' %}">Register Here</a></p>  <!-- Correct URL -->
+        </div>
+    </div>
+</body>
+</html>
